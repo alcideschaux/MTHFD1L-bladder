@@ -1,0 +1,75 @@
+```{r Global, echo=FALSE, warning=FALSE, message=FALSE}
+source("Global.R")
+```
+
+\   
+
+# Marker features {.tabset .tabset-pills .tabset-fade}
+## By TMA spots {.tabset .tabset-pills .tabset-fade}
+### Marker extent
+```{r MTHFD1L_extent}
+x <- marker$MTHFD1L_ext
+g_nice(x, bin = 10)
+tbl_nice(x)
+```
+
+### Marker intensity
+```{r MTHFD1L_intensity}
+x <- factor(marker$MTHFD1L_int)
+g_nice(x)
+tbl_nice(x)
+```
+
+### Marker H-score
+```{r MTHFD1L_h}
+x <- marker$MTHFD1L_h
+g_nice(x, bin = 25)
+tbl_nice(x)
+```
+
+***
+
+## By SP cases {.tabset .tabset-pills .tabset-fade}
+### By median value {.tabset .tabset-pills .tabset-fade}
+#### Marker extent
+```{r MTHFD1L_ext_med}
+x <- DF$MTHFD1L_ext_med
+g_nice(x, bin = 10)
+tbl_nice(x)
+```
+
+#### Marker intensity
+```{r MTHFD1L_int_med}
+x <- factor(DF$MTHFD1L_int_med)
+g_nice(x)
+tbl_nice(x)
+```
+
+#### Marker H-score
+```{r MTHFD1L_h_med}
+x <- DF$MTHFD1L_h_med
+g_nice(x, bin = 25)
+tbl_nice(x)
+```
+
+### By maximum value {.tabset .tabset-pills .tabset-fade}
+#### Marker extent
+```{r MTHFD1L_ext_max}
+x <- DF$MTHFD1L_ext_max
+g_nice(x, bin = 10)
+tbl_nice(x)
+```
+
+#### Marker intensity
+```{r MTHFD1L_int_max}
+x <- factor(DF$MTHFD1L_int_max)
+g_nice(x)
+tbl_nice(x)
+```
+
+#### Marker H-score
+```{r MTHFD1L_h_max}
+x <- DF$MTHFD1L_h_max
+g_nice(x, bin = 25)
+tbl_nice(x)
+```

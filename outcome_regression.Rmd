@@ -1,0 +1,40 @@
+```{r Global, echo=FALSE, warning=FALSE, message=FALSE}
+source("Global.R")
+DF <- DF %>% 
+  filter(dx_spot == "Invasive") %>% 
+  droplevels()
+
+FU <- DF$fu_months
+
+predictors <- with(DF, list(
+  "High MTHFD1L extent (> median)" = MTHFD1L_ext_level_med,
+  "High MTHFD1L intensity (> median)" = MTHFD1L_int_level_med,
+  "High MTHFD1L H-score (> median)" = MTHFD1L_h_level_med
+))
+
+varlabels <- names(predictors)
+
+```
+
+\   
+
+# Regression modelling {.tabset .tabset-pills .tabset-fade}
+## Tumor progression
+```{r progression}
+outcome <- DF$progression
+tbl_logcox(outcome, FU, predictors, varlabels)
+```
+
+***
+
+## Overall mortality
+```{r dead}
+outcome <- DF$dead
+tbl_logcox(outcome, FU, predictors, varlabels)
+```
+
+## Cancer-related mortality
+```{r dod}
+outcome <- DF$dod
+tbl_logcox(outcome, FU, predictors, varlabels)
+```

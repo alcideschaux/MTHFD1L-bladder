@@ -1,0 +1,82 @@
+```{r Global, echo=FALSE, warning=FALSE, message=FALSE}
+source("Global.R")
+DF <- DF %>% 
+  filter(dx_spot == "Invasive") %>% 
+  droplevels()
+
+FU <- DF$fu_months
+
+```
+
+\   
+
+# Survival curves {.tabset .tabset-pills .tabset-fade}
+## Tumor progression {.tabset .tabset-pills .tabset-fade}
+```{r progression}
+outcome <- DF$progression
+```
+
+### By extent
+```{r MTHFD1L_ext_level_med.progression}
+status <- DF$MTHFD1L_ext_level_med
+g_surv(FU, outcome, status)
+```
+
+### By intensity
+```{r MTHFD1L_int_level_med.progression}
+status <- DF$MTHFD1L_int_level_med
+g_surv(FU, outcome, status)
+```
+
+### By H-score
+```{r MTHFD1L_h_level_med.progression}
+status <- DF$MTHFD1L_h_level_med
+g_surv(FU, outcome, status)
+```
+
+## Overall mortality {.tabset .tabset-pills .tabset-fade}
+```{r dead}
+outcome <- DF$dead
+```
+
+### By extent
+```{r MTHFD1L_ext_level_med.dead}
+status <- DF$MTHFD1L_ext_level_med
+g_surv(FU, outcome, status)
+```
+
+### By intensity
+```{r MTHFD1L_int_level_med.dead}
+status <- DF$MTHFD1L_int_level_med
+g_surv(FU, outcome, status)
+```
+
+### By H-score
+```{r MTHFD1L_h_level_med.dead}
+status <- DF$MTHFD1L_h_level_med
+g_surv(FU, outcome, status)
+```
+
+## Cancer-related mortality {.tabset .tabset-pills .tabset-fade}
+```{r dod}
+outcome <- DF$dod
+```
+
+### By extent
+```{r MTHFD1L_ext_level_med.dod}
+status <- DF$MTHFD1L_ext_level_med
+g_surv(FU, outcome, status)
+```
+
+### By intensity
+```{r MTHFD1L_int_level_med.dod}
+status <- DF$MTHFD1L_int_level_med
+g_surv(FU, outcome, status)
+```
+
+### By H-score
+```{r MTHFD1L_h_level_med.dod}
+status <- DF$MTHFD1L_h_level_med
+g_surv(FU, outcome, status)
+```
+
